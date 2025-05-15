@@ -1,0 +1,184 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 150px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header p {
+            color: #c00;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .alert {
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin: 5px 0;
+        }
+
+        .highlight {
+            color: #ffa500;
+            font-weight: bold;
+        }
+
+        .subscription {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .subscription h3 {
+            color: #c00;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .renew-button {
+            display: inline-block;
+            background-color: #c00;
+            color: white;
+            padding: 13px 33px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .renew-button:hover {
+            background-color: #a00;
+        }
+
+        .discount {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .timer {
+            color: #c00;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        #timer {
+           font-weight: bold;
+            color: #cc0000;
+        }
+    </style>
+<div></div><div></div></head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="https://imgur.com/hOxrvSk.png" alt="Logo" class="logo" style="margin: -20px auto"><br>
+        <p>Protection contre les menaces primée et leader sur le marché</p>
+    </div>
+    <div class="alert">
+        <p style="display: inline-block"><img src="https://i.imgur.com/IyiRkRW.png" width="20px" style="display: inline-block; margin-right: 5px; margin-bottom: -5px">Votre abonnement McAfee expire bientôt !<img src="https://i.imgur.com/IyiRkRW.png" width="20px" style="display: inline-block; margin-left: 5px; margin-bottom: -5px"></p>
+    </div>
+    <div class="details">
+        <p><strong style="">Code de référence :</strong> 63219US</p>
+        <p><strong style="">Date d'expiration :</strong> <span class="highlight" id="currentDate">Thursday, May 15, 2025</span></p>
+        <p><strong style="">ID du compte :</strong> <span id="accountId">650964</span></p>
+    </div>
+    <div class="subscription">
+        <p>Nous détectons des centaines de nouvelles menaces chaque jour. Renouvelez dès maintenant votre abonnement pour vous assurer que votre appareil reste entièrement protégé contre les logiciels malveillants, les attaques de phishing et les autres cyberrisques. Profitez d'une sécurité ininterrompue et d'une tranquillité d'esprit.</p>
+        <h3>Votre abonnement se termine bientôt.</h3>
+        <a href="https://www.tl2giutrk.com/3P8KRP/BBDRJ98/" style="color: white; text-decoration: none" class="renew-button">RENOUVELLEMENT</a>
+        <p class="discount">Disponible (-60%) Remise de renouvellement : <span id="timer">EXPIRED</span></p>
+    </div>
+    <div class="footer">
+        <p>Note : Si aucun abonnement n'est enregistré, votre compte sera marqué comme inactif et sera supprimé dans les <strong style="color: #cc0000">48 heures.</strong>.</p>
+    </div>
+    <div class="images" style="display: flex; align-items: center; justify-content: center; margin-top: 30px">
+        <a href="https://www.tl2giutrk.com/3P8KRP/BBDRJ98/" style="display: inline-block; text-align: center"><img src="https://i.imgur.com/DdV4DDj.png" width="50%"></a>
+    </div>
+</div>
+<script>
+    function startCountdown(duration, display) {
+        let timer = duration, minutes, seconds;
+        const interval = setInterval(() => {
+            minutes = Math.floor(timer / 60);
+            seconds = timer % 60;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = `00:${minutes}:${seconds}`;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+                display.textContent = "EXPIRED";
+            }
+        }, 1000);
+    }
+    function displayCurrentDate() {
+        const currentDateElement = document.getElementById('currentDate');
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('en-US', options);
+        currentDateElement.textContent = today;
+    }
+    function generateRandomAccountId() {
+        const accountIdElement = document.getElementById('accountId');
+        const randomId = Math.floor(100000 + Math.random() * 900000);
+        accountIdElement.textContent = randomId;
+    }
+
+    // On load
+    window.onload = function () {
+        generateRandomAccountId();
+        const timerElement = document.getElementById('timer');
+        const duration = 4 * 60 + 48;
+        startCountdown(duration, timerElement);
+        displayCurrentDate();
+
+    };
+</script>
+
+
+</body></html>
